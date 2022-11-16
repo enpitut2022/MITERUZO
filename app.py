@@ -25,7 +25,7 @@ def upload():
     # formでsubmitボタンが押されるとPOSTリクエストとなるのでこっち
     elif request.method == 'POST':
         file = request.files['example']
-        #file.save(os.path.join('templates/images', file.filename))
+        file.save(os.path.join('templates/images', file.filename))
         return render_template("stream.html", filename=os.path.join('images', file.filename), css_upload="upload_display.css")
 
 
