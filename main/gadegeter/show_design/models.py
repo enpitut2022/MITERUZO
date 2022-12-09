@@ -2,12 +2,16 @@ from django.db import models
 
 # Create your models here.
 class Image(models.Model):
-    image = models.ImageFidld(upload_to='images/')
+    image = models.ImageField(upload_to='images/')
 
 
 
 class Tag(models.Model):
-    tagname = models.ChairField(max_length=100)
+    tagname = models.CharField(max_length=100)
 
 
-#class ImageTag(models.Model):
+class ImageTag(models.Model):
+    imageid = models.CharField(max_length=100)
+    tagid = models.CharField(max_length=100)
+
+
