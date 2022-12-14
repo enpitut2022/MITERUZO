@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang = "ja">
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}</title>
+         <!--
+        <link rel="stylesheet" type="text/css"
+            href = "{% static 'hello/css/style.css' %}" /> 
+        -->
+        <link rel = "styleesheet"
+        href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+         corossorigin="anonymous">
+         
+    </head>
+    <body class='container'>
+        <h1 class = 'display-4 txt-primary'>{{title}}</h1>
+        <p>{{message|safe}}</p>
+        <table class="'table">
+            <tr>
+                <th>image</th>   
+            </tr>
+            <img src= "../../../media/4.png">
+            {% for item in data %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td><img src="../../media/{{item.id}}.png"></td>
+    
+            
+            </tr>
+            {% endfor %}
+        </table>
+
+    </body>
+</html>
