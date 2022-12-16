@@ -16,14 +16,21 @@
     <body class='container'>
         <h1 class = 'display-4 txt-primary'>{{title}}</h1>
         <p>{{message|safe}}</p>
+        <form action = "{%url 'find' %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <tr><th></th><td>
+                <input type ="submit" value="検索" class = "btn-primary mt-2"></td></tr> 
+      
+        </form>
         <table class="'table">
             <tr>
                 <th width="800" colspan="2" bgcolor="yellow">デスクトップ画像集（参考になるデスクトップを探してみてね）</th>   
             </tr>
             {% for item in data %}
             <tr>
-                <td>{{item.imageid}}</td>
-                <td><img src="../../media/{{item.imageid}}.png"></td>
+                <!--<td>{{item.imageid}}</td>-->
+                <td><img src="../../media/{{item.imageid}}.png" width="800"></td>
     
             
             </tr>
