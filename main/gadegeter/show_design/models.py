@@ -6,7 +6,6 @@ class Image(models.Model):
     image = models.ImageField(upload_to='media')
 
 
-
 class Tag(models.Model):
     tagid = models.IntegerField(default = 0)
     tagname = models.CharField(max_length=100)
