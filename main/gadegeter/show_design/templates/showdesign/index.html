@@ -18,13 +18,12 @@
         <p>{{message|safe}}</p>
         <table class="'table">
             <tr>
-                <th>image</th>   
+                <th width="800" colspan="2" bgcolor="yellow">デスクトップ画像集（参考になるデスクトップを探してみてね）</th>   
             </tr>
-            <img src= "../../../media/4.png">
             {% for item in data %}
             <tr>
-                <td>{{item.id}}</td>
-                <td><img src="../../media/{{item.id}}.png"></td>
+                <!--<td>{{item.id}}</td>-->
+                <td><img src="../../media/{{item.id}}.png" width="800"></td>
     
             
             </tr>
