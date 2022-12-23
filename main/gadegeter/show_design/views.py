@@ -6,14 +6,15 @@ from .form import FindForm
 def index(request):
     msg = "search words"
     form = FindForm()
-    #data = Image.objects.all()
     data = Image.objects.raw("select * from show_design_image")
+    tags = Tag.objects.raw("select * from show_design_tag")
     title = "一覧"
     params = {
         'title' : title,
         'message': msg,
-        'form':form,
-        'data':data,
+        'form' : form,
+        'data' : data,
+        'tags' : tags,
     }
     return render(request,'showdesign/index.html',params)
 
@@ -23,18 +24,14 @@ def find(request):
         find = request.POST['find']
         msg = str(find)
         title = "検索結果"
+        tags = Tag.objects.raw("select * from show_design_tag")
         data = Image.objects.raw((f"select * from  show_design_imagetag inner join show_design_image on show_design_imagetag.imageid = show_design_image.imageid inner join show_design_tag on show_design_imagetag.tagid = show_design_tag.tagid where show_design_tag.tagname = '{msg}'"))
-    else:
-        msg = "search words"
-        form = FindForm()
-        #data = Image.objects.all()
-        data = Image.objects.raw("select * from show_design_image")
-        title = "一覧"
     params = {
         'title' : title,
         'message': msg,
         'form':form,
         'data':data,
+        'tags' : tags,
     }
     return render(request,'showdesign/find.html',params)
 
