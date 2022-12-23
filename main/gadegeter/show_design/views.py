@@ -4,8 +4,15 @@ from .models import Image,ImageTag,Tag
 from .form import FindForm
 
 def index(request):
-    data = Image.objects.all()
+    msg = "search words"
+    form = FindForm()
+    #data = Image.objects.all()
+    data = Image.objects.raw("select * from show_design_image")
+    title = "一覧"
     params = {
+        'title' : title,
+        'message': msg,
+        'form':form,
         'data':data,
     }
     return render(request,'showdesign/index.html',params)
@@ -29,6 +36,6 @@ def find(request):
         'form':form,
         'data':data,
     }
-    return render(request,'showdesign/index.html',params)
+    return render(request,'showdesign/find.html',params)
 
 # Create your views here.
