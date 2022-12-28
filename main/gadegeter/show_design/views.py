@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Image,ImageTag,Tag, ImageUrl
-from .form import FindForm
+from .form import FindForm, ImageForm
+from django.shortcuts import redirect
 
 def index(request):
     msg = "search words"
@@ -38,4 +39,20 @@ def find(request):
     }
     return render(request,'showdesign/find.html',params)
 
-# Create your views here.
+def create(request):
+    form = ImageForm()
+    context = {
+        'imageForm': form,
+    }
+
+    return render(request,'showdesign/create.html', context)
+
+def addImage(request):
+    last_id = Image.objects.order_by('-id').first().id
+    register_id = last_id+1
+    if request.method == 'POST':
+        request.FILES["image"].name = str(register_id) + ".png"
+        imageForm = ImageForm(request.POST, request.FILES)
+        if imageForm.is_valid():
+            imageForm.save()
+    return redirect('index')

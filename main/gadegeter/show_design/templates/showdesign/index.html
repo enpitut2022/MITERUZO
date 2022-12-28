@@ -6,12 +6,12 @@
         <title>{{title}}</title>
          <!--
         <link rel="stylesheet" type="text/css"
-            href = "{% static 'hello/css/style.css' %}" /> 
+            href = "{% static 'hello/css/style.css' %}" />
         -->
         <link rel = "styleesheet"
         href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
          corossorigin="anonymous">
-         
+
     </head>
     <body class='container'>
         <h1 class = 'display-4 txt-primary'>{{title}}</h1>
@@ -28,19 +28,16 @@
                 <p></p>
 
             <input type ="submit" value="検索" class = "btn-primary mt-2">
-      
+
         </form>
-        
+
         <table class="'table">
             <tr>
-                <th width="800" colspan="2" bgcolor="yellow">デスクトップ画像集（参考になるデスクトップを探してみてね）</th>   
+                <th width="800" colspan="2" bgcolor="yellow">デスクトップ画像集（参考になるデスクトップを探してみてね）</th>
             </tr>
             {% for item in data %}
             <tr>
-                <!--<td>{{item.imageid}}</td>-->
-                <td><img src="../../media/{{item.imageid}}.png" width="800"></td>
-    
-            
+                <td><img src="../../media/{{item.id}}.png" width="800"></td>
             </tr>
             {% endfor %}
         </table>

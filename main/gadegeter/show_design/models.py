@@ -11,7 +11,6 @@ class Tag(models.Model):
     tagname = models.CharField(max_length=100)
 
 
-
 class ImageTag(models.Model):
     imageid = models.CharField(max_length=100)
     tagid = models.CharField(max_length=100)
