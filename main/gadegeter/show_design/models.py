@@ -17,5 +17,8 @@ class ImageTag(models.Model):
     tagid = models.CharField(max_length=100)
 
 
-
+class ImageUrl(models.Model):
+    imageid = models.CharField(max_length=100)
+    tagid = models.CharField(max_length=100)
+    url = models.CharField(max_length=1000)
 
