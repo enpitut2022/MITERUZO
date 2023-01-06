@@ -27,6 +27,14 @@
                 </option>
                 {% endfor %}
             </select>
+            <select name="desk">
+                {% for desk in desk %}
+                <option value = "{{desk.sizename}}">
+                    {{desk.sizename}}
+                </option>
+                {% endfor %}
+            </select>
+            <p></p>
             <p></p>
 
                 <input type ="submit" value="検索" class = "btn-primary mt-2">

@@ -22,3 +22,8 @@ class ImageUrl(models.Model):
     tagid = models.CharField(max_length=100)
     url = models.CharField(max_length=1000)
 
+
+class Desk(models.Model):
+    imageid = models.CharField(max_length=100)
+    sizename = models.CharField(max_length=100)
+
