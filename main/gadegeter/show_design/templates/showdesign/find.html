@@ -30,12 +30,10 @@
             </select>
             デスクのサイズ:
             <select name="desk">
-                {% for desk in desk %}
-                <option value = "{{desk.sizename}}">
-                    
-                    {{desk.sizename}}
-                </option>
-                {% endfor %}
+                <option value = "大">大</option>
+                <option value = "中">中</option>
+                <option value = "小">小</option>
+                <option value = "指定無し">指定無し</option>
             </select>
             <p></p>
             <p></p>
