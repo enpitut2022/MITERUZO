@@ -10,9 +10,10 @@
         <link rel="stylesheet" type="text/css"
             href = "{% static 'hello/css/style.css' %}" />
         -->
-        <link rel = "styleesheet"
-        href = "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-         corossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+         crossorigin="anonymous">
 
     </head>
     <body class='container'>
@@ -30,30 +31,36 @@
             </select>
             デスクのサイズ:
             <select name="desk">
-                <option value = "大">大</option>
-                <option value = "中">中</option>
-                <option value = "小">小</option>
+                <option value = "大">大(1400mm x 800mm)</option>
+                <option value = "中">中(1200mm x 700mm)</option>
+                <option value = "小">小(1000mm x 600mm)</option>
                 <option value = "指定無し">指定無し</option>
             </select>
             <p></p>
-            <p></p>
 
                 <input type ="submit" value="検索" class = "btn-primary mt-2">
+                <a href = "/">一覧</a>
 
         </form>
-        <a href = "/">
-            一覧
-        </a>
         <div>
 
-            <p width="800" colspan="2" bgcolor="yellow">デスクトップ画像集（参考になるデスクトップを探してみてね）</p>
+            <th width="800" colspan="2" bgcolor="yellow">デスクトップ画像集（参考になるデスクトップを探してみてね）</th>   
+            <p></p>
             {% for item in data %}
             <img src="../../media/{{item.imageid}}.png" width="800">
                 {% for url in urls %}
                     {% if url.imageid == item.imageid %}
-                        <p>
+                        {% comment %} <p>
                             <a href="{{url.url}}">{{url.tagname}}</a>
-                        </p>
+                            <img src="{{url.imageurl}}">
+                        </p> {% endcomment %}
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{url.imageurl}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{url.tagname}}</h5>
+                                <a href="{{url.url}}" class="btn btn-primary">{{url.tagname}}</a>
+                            </div>
+                        </div>
                     {% endif %}
                 {% endfor %}
             {% endfor %}

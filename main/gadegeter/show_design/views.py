@@ -40,7 +40,7 @@ def find(request):
         print(data)
     params = {
         'title' : title,
-        'message': msg,
+        'message': "ガジェット: " + msg + ", デスクのサイズ: " + size,
         'form':form,
         'data':data,
         'tags' : tags,
